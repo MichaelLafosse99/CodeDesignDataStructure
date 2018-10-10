@@ -3,10 +3,10 @@
 #include "nodeType.h"
 
 template<typename T>
-class linkedListType<T>
+class  linkedListType
 {
 protected:
-	int count;
+	int mCount;
 	nodeType<T> *First;
 	nodeType<T> *Last;
 public:

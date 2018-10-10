@@ -15,7 +15,7 @@ template<typename T>
 template<typename T>
 bool linkedListType<T>::isEmptyList() const
 {
-	return false;
+	return (first == nullptr);
 }
 
 template<typename T>

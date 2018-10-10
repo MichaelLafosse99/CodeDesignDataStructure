@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClInclude Include="iterator.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="listpure.h" />
     <ClInclude Include="nodeType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

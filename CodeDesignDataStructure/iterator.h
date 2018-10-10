@@ -2,7 +2,7 @@
 #include "nodeType.h"
 
 template <typename T>
-class linkedListIterator<T>
+class linkedListIterator
 {
 private:
 	nodeType<T> *current;

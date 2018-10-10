@@ -35,5 +35,8 @@
     <ClInclude Include="nodeType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="listpure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
