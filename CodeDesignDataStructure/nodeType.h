@@ -4,5 +4,5 @@ template<typename T>
 struct nodeType
 {
 	T info;
-	nodeType* link;
+	nodeType* next;
 };

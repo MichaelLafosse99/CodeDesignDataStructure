@@ -6,5 +6,7 @@
 
 int main()
 {
-
+	nodeType<int> h1;
+	nodeType<int> h2;
+	h1.info = 4;
 }
