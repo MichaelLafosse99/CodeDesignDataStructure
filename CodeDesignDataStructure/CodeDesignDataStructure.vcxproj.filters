@@ -24,6 +24,9 @@
     <ClCompile Include="iterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UnorderedLinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iterator.h">
@@ -35,7 +38,7 @@
     <ClInclude Include="nodeType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="listpure.h">
+    <ClInclude Include="UnorderedLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
