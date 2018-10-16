@@ -18,10 +18,10 @@ public:
 	void destroyList();
 	T front() const;
 	T back() const;
-	bool search(const T&) const = 0;
-	void insertFirst(const T&) = 0;
-	void insertLast(const T&) = 0;
-	void deleteNode(const T&) = 0;
+	virtual bool search(const T&) const = 0;
+	virtual void insertFirst(const T&) = 0;
+	virtual void insertLast(const T&) = 0;
+	virtual void deleteNode(const T&) = 0;
 	linkedListIterator<T> begin();
 	linkedListIterator<T> end();
 	linkedListType();
