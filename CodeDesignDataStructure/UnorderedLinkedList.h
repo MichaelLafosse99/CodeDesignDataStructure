@@ -19,48 +19,57 @@ bool unorderedLinkedList<T>::search(const T &) const
 template<typename T>
 void unorderedLinkedList<T>::insertFirst(const T & object)
 {
-	if (this->mCount == 2)
-	{
-		this->First->next = this->Last;
-	}
-	this->mCount++;
-	nodeType<T> *test = new nodeType<T>;
-	if (this->Last == nullptr)
-	{
-		this->Last = test;
-		if (this->First = nullptr)
-		{
-			this->First = test;
-		}
-	}
-	test->info = object;
-	test->next = this->First;
-	this->First = test;
+	//If list is empty 
+		//first and last point to the new node
+		//increment count
+	//else
+		//new node links to first
+		//first points to new node
+		//increment count
 
+	nodeType<T> *test = new nodeType<T>;
+	test->info = object;
+
+	if (this->isEmptyList())
+	{
+		this->First = test;
+		this->Last = test;
+		this->mCount++;
+	}
+	else
+	{
+		test->next = this->First;
+		this->First = test;
+		this->mCount++;
+	}
 }
 
 template<typename T>
 void unorderedLinkedList<T>::insertLast(const T & object)
 {
-	if (this->mCount == 2)
-	{
-		this->First->next = this->Last; 
-	}
+	//If list is empty 
+		//first and last point to the new node
+		//increment count
+	//else
+		//last link is set to new node
+		//last points to new node
+		//increment count
 
-	this->mCount++;
 	nodeType<T> *test = new nodeType<T>;
-	if (this->Last == nullptr)
-	{
-		this->Last = test;
-		if (this->First = nullptr)
-		{
-			this->First = test;
-		}
-	}
 	test->info = object;
-	this->Last = test;
 	
-
+	if (this->isEmptyList())
+	{
+		this->First = test;
+		this->Last = test;
+		this->mCount++;
+	}
+	else
+	{
+	  = test;
+		this->Last = test;
+		this->mCount++;
+	}
 }
 
 template<typename T>
