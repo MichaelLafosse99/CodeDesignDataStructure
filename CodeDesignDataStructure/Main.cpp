@@ -11,5 +11,7 @@ int main()
 	testlink->insertLast(5);
 	testlink->insertFirst(6);
 	testlink->insertLast(3);
+	testlink->search(3);
+	testlink->deleteNode(3);
 	return 0;
 }

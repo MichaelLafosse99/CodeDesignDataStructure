@@ -11,9 +11,21 @@ public:
 };
 
 template<typename T>
-bool unorderedLinkedList<T>::search(const T &) const
+bool unorderedLinkedList<T>::search(const T & object) const
 {
-	return false;
+	nodeType<T> *currentNode;
+	currentNode = this->First;
+	for (int i = 0; i <= this->mCount; i++)
+	{
+		if (currentNode->info == object)
+		{
+			return true;
+		}
+		if (currentNode->info != object)
+		{
+			currentNode = currentNode->next;
+		}
+	}
 }
 
 template<typename T>
@@ -23,7 +35,7 @@ void unorderedLinkedList<T>::insertFirst(const T & object)
 		//first and last point to the new node
 		//increment count
 	//else
-		//new node links to first
+		//new node's next is set to first
 		//first points to new node
 		//increment count
 
@@ -51,7 +63,7 @@ void unorderedLinkedList<T>::insertLast(const T & object)
 		//first and last point to the new node
 		//increment count
 	//else
-		//last link is set to new node
+		//last next is set to new node
 		//last points to new node
 		//increment count
 
@@ -66,14 +78,49 @@ void unorderedLinkedList<T>::insertLast(const T & object)
 	}
 	else
 	{
-	  = test;
+		this->Last->next = test;
 		this->Last = test;
 		this->mCount++;
 	}
 }
 
 template<typename T>
-void unorderedLinkedList<T>::deleteNode(const T &)
+void unorderedLinkedList<T>::deleteNode(const T & object)
 {
-	
+	nodeType<T> *dptr;
+	nodeType<T> *trailptr;
+
+	dptr = this->First;
+	trailptr = this->First;
+	for (int i = 0; i <= this->mCount; i++)
+	{
+		if (dptr->info == object)
+		{
+			this->First = this->First->next;
+			delete dptr;
+			this->mCount--;
+			return;
+		}
+		if (dptr->info != object)
+		{
+			dptr = dptr->next;
+			if (dptr == this->Last)
+			{
+				this->Last = trailptr;
+				trailptr->next = nullptr;
+				delete dptr;
+				this->mCount--;
+				return;
+			}
+			if (dptr->info == object)
+			{
+				trailptr->next = dptr->next;
+				delete dptr;
+				this->mCount--;
+				return;
+			}
+			trailptr = trailptr->next;
+			
+		}
+	}
 }
