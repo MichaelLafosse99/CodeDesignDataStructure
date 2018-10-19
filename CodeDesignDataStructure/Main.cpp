@@ -7,11 +7,15 @@
 int main()
 {
 	unorderedLinkedList<int>* testlink = new unorderedLinkedList<int>();
-	testlink->insertFirst(4);
+	testlink->initializeList();
+	testlink->insertFirst(3);
 	testlink->insertLast(5);
-	testlink->insertFirst(6);
-	testlink->insertLast(3);
-	testlink->search(3);
-	testlink->deleteNode(3);
+	testlink->insertFirst(1);
+	testlink->insertLast(4);
+	testlink->deleteNode(5);
+	testlink->begin();
+	testlink->end();
+	testlink->print();
+	testlink->destroyList();
 	return 0;
 }

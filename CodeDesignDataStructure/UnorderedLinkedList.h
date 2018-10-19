@@ -15,7 +15,7 @@ bool unorderedLinkedList<T>::search(const T & object) const
 {
 	nodeType<T> *currentNode;
 	currentNode = this->First;
-	for (int i = 0; i <= this->mCount; i++)
+	for (int i = 0; i < this->mCount; i++)
 	{
 		if (currentNode->info == object)
 		{
@@ -65,6 +65,7 @@ void unorderedLinkedList<T>::insertLast(const T & object)
 	//else
 		//last next is set to new node
 		//last points to new node
+		//test next points to nullptr
 		//increment count
 
 	nodeType<T> *test = new nodeType<T>;
@@ -80,6 +81,7 @@ void unorderedLinkedList<T>::insertLast(const T & object)
 	{
 		this->Last->next = test;
 		this->Last = test;
+		test->next = nullptr;
 		this->mCount++;
 	}
 }
@@ -89,10 +91,15 @@ void unorderedLinkedList<T>::deleteNode(const T & object)
 {
 	nodeType<T> *dptr;
 	nodeType<T> *trailptr;
-
+	if (this->mCount == 1)
+	{
+		delete this->First;
+		this->initializeList();
+		return;
+	}
 	dptr = this->First;
 	trailptr = this->First;
-	for (int i = 0; i <= this->mCount; i++)
+	for (int i = 0; i < this->mCount; i++)
 	{
 		if (dptr->info == object)
 		{
@@ -120,7 +127,6 @@ void unorderedLinkedList<T>::deleteNode(const T & object)
 				return;
 			}
 			trailptr = trailptr->next;
-			
 		}
 	}
 }

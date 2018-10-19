@@ -33,15 +33,18 @@ private:
 };
 
 template<typename T>
-const linkedListType<T>& linkedListType<T>::operator=(const linkedListType<T>&)
+const linkedListType<T>& linkedListType<T>::operator=(const linkedListType<T>& list)
 {
-	// TODO: insert return statement here
+	this->copyList(list);
+	return *this;
 }
 
 template<typename T>
 void linkedListType<T>::initializeList()
 {
-
+	mCount = 0;
+	First = nullptr;
+	Last = nullptr;
 }
 
 template<typename T>
@@ -53,43 +56,66 @@ bool linkedListType<T>::isEmptyList() const
 template<typename T>
 void linkedListType<T>::print() const
 {
-
+	nodeType<T> *iter;
+	iter = this->First;
+	for (int i = 0; i < mCount; i++)
+	{
+		std::cout << iter->info << std::endl;
+		iter = iter->next;
+	}
 }
 
 template<typename T>
 int linkedListType<T>::length() const
 {
-	return 0;
+	return mCount;
 }
 
 template<typename T>
 void linkedListType<T>::destroyList()
 {
-
+	nodeType<T> * iter;
+	
+	while(mCount != 0)
+	{
+		iter = this->First;
+		if (mCount == 1)
+		{
+			delete First;
+			initializeList();
+			return;
+		}
+		else
+		{
+			First = First->next;
+			delete iter;
+			mCount--;
+		}
+	}
 }
 
 template<typename T>
 T linkedListType<T>::front() const
 {
-	return T();
+	return First->info;
 }
 
 template<typename T>
 T linkedListType<T>::back() const
 {
-	return T();
+	return Last->info;
 }
 
 template<typename T>
 linkedListIterator<T> linkedListType<T>::begin()
 {
-	return linkedListIterator<T>();
+	return linkedListIterator<T>(First);
 }
 
 template<typename T>
 linkedListIterator<T> linkedListType<T>::end()
 {
-	return linkedListIterator<T>();
+	return linkedListIterator<T>(Last);
 }
 
 template<typename T>
