@@ -83,6 +83,7 @@ void linkedListType<T>::destroyList()
 		{
 			delete First;
 			initializeList();
+			mCount--;
 			return;
 		}
 		else
@@ -121,23 +122,57 @@ linkedListIterator<T> linkedListType<T>::end()
 template<typename T>
 linkedListType<T>::linkedListType()
 {
-
+	
 }
 
 template<typename T>
-linkedListType<T>::linkedListType(const linkedListType<T>&)
+linkedListType<T>::linkedListType(const linkedListType<T>& list)
 {
+	this->First = new nodeType<T>;
+	nodeType<T>* listOne = (list.First);
+	nodeType<T>* listTwo = (this->First);
 
+	for (int i = 0; i < list.mCount; i++)
+	{
+		listTwo->info = listOne->info;
+		if (i < list.mCount -1)
+		{
+			listTwo->next = new nodeType<T>;
+			mCount++;
+			listTwo = listTwo->next;
+			listOne = listOne->next;
+		}
+	}
+	Last = listTwo;
+	listTwo->next = nullptr;
 }
 
 template<typename T>
 linkedListType<T>::~linkedListType()
 {
-
+	destroyList();
 }
 
 template<typename T>
-void linkedListType<T>::copyList(const linkedListType<T>&)
+void linkedListType<T>::copyList(const linkedListType<T>& list)
 {
+	//pseudocode
+
+	//destroy list
+	//pointer to list->first
+
+	//for (i < list->count)
+	//this->insertLast(list->info);
+	//pointer++;
+	//repeat
+
+	this->destroyList();
+	nodeType<T>* listOne = (list->First);
+
+	for (int i = 0; i < list.mCount; i++)
+	{
+		this->initializeLast(list.info);
+		listOne = listOne->next;
+	}
 
 }
