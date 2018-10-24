@@ -46,12 +46,14 @@ void unorderedLinkedList<T>::insertFirst(const T & object)
 	{
 		this->First = test;
 		this->Last = test;
+		test->next = nullptr;
 		this->mCount++;
 	}
 	else
 	{
 		test->next = this->First;
 		this->First = test;
+
 		this->mCount++;
 	}
 }

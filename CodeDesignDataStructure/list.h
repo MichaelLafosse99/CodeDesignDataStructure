@@ -117,13 +117,13 @@ linkedListIterator<T> linkedListType<T>::begin()
 template<typename T>
 linkedListIterator<T> linkedListType<T>::end()
 {
-	return linkedListIterator<T>(Last);
+	return linkedListIterator<T>(nullptr);
 }
 
 template<typename T>
 linkedListType<T>::linkedListType()
 {
-	
+	initializeList();
 }
 
 template<typename T>
