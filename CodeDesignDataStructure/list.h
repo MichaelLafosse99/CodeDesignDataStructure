@@ -32,6 +32,7 @@ private:
 	void copyList(const linkedListType<T>&);
 };
 
+
 template<typename T>
 const linkedListType<T>& linkedListType<T>::operator=(const linkedListType<T>& list)
 {
@@ -159,19 +160,19 @@ void linkedListType<T>::copyList(const linkedListType<T>& list)
 	//pseudocode
 
 	//destroy list
-	//pointer to list->first
+	//pointer to list.first
 
-	//for (i < list->count)
-	//this->insertLast(list->info);
+	//for (i < list.count)
+	//this->insertLast(listOne->info);
 	//pointer++;
 	//repeat
 
 	this->destroyList();
-	nodeType<T>* listOne = (list->First);
+	nodeType<T>* listOne = (list.First);
 
 	for (int i = 0; i < list.mCount; i++)
 	{
-		this->initializeLast(list.info);
+		this->insertLast(listOne->info);
 		listOne = listOne->next;
 	}
 
