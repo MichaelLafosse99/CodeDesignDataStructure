@@ -36,6 +36,10 @@ private:
 template<typename T>
 const linkedListType<T>& linkedListType<T>::operator=(const linkedListType<T>& list)
 {
+
+	//this operator is what allows access to
+	//the copy list fucntion
+
 	this->copyList(list);
 	return *this;
 }
@@ -43,6 +47,10 @@ const linkedListType<T>& linkedListType<T>::operator=(const linkedListType<T>& l
 template<typename T>
 void linkedListType<T>::initializeList()
 {
+
+	//this sets count to 0 and both the
+	//first and last pointers to nullptr.
+
 	mCount = 0;
 	First = nullptr;
 	Last = nullptr;
@@ -57,6 +65,9 @@ bool linkedListType<T>::isEmptyList() const
 template<typename T>
 void linkedListType<T>::print() const
 {
+
+	//Prints out all of the (current) nodes in a list
+
 	nodeType<T> *iter;
 	iter = this->First;
 	for (int i = 0; i < mCount; i++)
@@ -75,6 +86,11 @@ int linkedListType<T>::length() const
 template<typename T>
 void linkedListType<T>::destroyList()
 {
+
+	//This completely destroys all of the nodes in a list,
+	//deleting each node and decrementing count
+	//after each deletion.
+
 	nodeType<T> * iter;
 	
 	while(mCount != 0)
@@ -84,7 +100,6 @@ void linkedListType<T>::destroyList()
 		{
 			delete First;
 			initializeList();
-			mCount--;
 			return;
 		}
 		else
@@ -129,6 +144,11 @@ linkedListType<T>::linkedListType()
 template<typename T>
 linkedListType<T>::linkedListType(const linkedListType<T>& list)
 {
+
+	//similar to copy, except the list isn't destroyed
+	//this "initializes" a new list to have the same nodes
+	//as the list in the parameter.
+
 	this->First = new nodeType<T>;
 	nodeType<T>* listOne = (list.First);
 	nodeType<T>* listTwo = (this->First);
@@ -158,15 +178,12 @@ linkedListType<T>::~linkedListType()
 template<typename T>
 void linkedListType<T>::copyList(const linkedListType<T>& list)
 {
-	//pseudocode
-
-	//destroy list
-	//pointer to list.first
-
-	//for (i < list.count)
-	//this->insertLast(listOne->info);
-	//pointer++;
-	//repeat
+	
+	//This destroys the current list calling on the copy
+	//(three = one, three is deleted), nodes from the list
+	//being copied are inserted last into the new list,
+	//and once completed the list is then able to be 
+	//printed out to visually see the "list".
 
 	this->destroyList();
 	nodeType<T>* listOne = (list.First);
@@ -176,5 +193,4 @@ void linkedListType<T>::copyList(const linkedListType<T>& list)
 		this->insertLast(listOne->info);
 		listOne = listOne->next;
 	}
-	mCount++;
 }

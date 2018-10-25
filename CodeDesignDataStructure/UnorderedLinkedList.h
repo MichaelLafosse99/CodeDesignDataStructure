@@ -13,6 +13,9 @@ public:
 template<typename T>
 bool unorderedLinkedList<T>::search(const T & object) const
 {
+	//this uses first and currentnode pointers to iterate
+	//through the list to find the node that is being searched
+
 	nodeType<T> *currentNode;
 	currentNode = this->First;
 	for (int i = 0; i < this->mCount; i++)
@@ -91,6 +94,14 @@ void unorderedLinkedList<T>::insertLast(const T & object)
 template<typename T>
 void unorderedLinkedList<T>::deleteNode(const T & object)
 {
+
+	//using two pointers, you can delete a node and have
+	//the previous node point to the one after the deleted node,
+	//completely erasing the node selected to be deleted.
+
+	//the if statements are incase the node to be deleted is the first node,
+	//the last node, or if the node is in the "middle" of the list.
+
 	nodeType<T> *dptr;
 	nodeType<T> *trailptr;
 	if (this->mCount == 1)

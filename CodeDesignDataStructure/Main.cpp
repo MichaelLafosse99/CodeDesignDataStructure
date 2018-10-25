@@ -176,5 +176,8 @@ int main()
 	//Result: the console prints out the nodes in the list
 	std::cout << "This is list three's nodes after copy: " << std::endl;
 	three.print();
+	//Expected: all of the nodes should be deleted from the list
+	//Result: count is set to 0 and first and last point at null
+	three.destroyList();
 	system("pause");
 }
