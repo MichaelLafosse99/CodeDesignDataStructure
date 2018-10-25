@@ -97,6 +97,11 @@ int main()
 	//Expected: Last should point to a new node with the info of 3
 	//Result: The new node with the info of 4 is now the Last node
 	one.insertLast(4);
+	//Expected: the nodes in the list should print out to the console
+	//Result: the console prints out the nodes in the list
+	std::cout << "This is list one's nodes before deleting 5: " << std::endl;
+	one.print();
+	std::cout << std::endl;
 	//Expected: The node containing 5, should be
 	//deleted out of the list
 	//Result: 5 is deleted, leaving 3 to point to 4.
@@ -105,6 +110,12 @@ int main()
 	//the value 4, and return true when found.
 	//Result: search returns true
 	one.search(4);
+	//Expected: the nodes in the list should print out to the console
+	//Result: the console prints out the nodes in the list
+	std::cout << "This is list one's nodes after deleting 5: " << std::endl;
+	one.print();
+	std::cout << std::endl;
+
 	//List Two:
 
 	//Expected: List two should have the same nodes as list one
@@ -121,7 +132,9 @@ int main()
 	two.end();
 	//Expected: the nodes in the list should print out to the console
 	//Result: the console prints out the nodes in the list
+	std::cout << "This is list two's nodes: " << std::endl;
 	two.print();
+	std::cout << std::endl;
 	//Expected: length should return the number of nodes that are
 	//in the list
 	//Result: length returns mCount with the value of 3,
@@ -148,10 +161,20 @@ int main()
 	//Expected: The last node's info should be returned
 	//Result: 9, which is the info of the last node, is returned
 	three.back();
+	//Expected: the nodes in the list should print out to the console
+	//Result: the console prints out the nodes in the list
+	std::cout << "This is list three's nodes before copy: " << std::endl;
+	three.print();
+	std::cout << std::endl;
 	//Expected: This should delete list three,
 	//copy list one and replace the nodes in
 	//list three, with the ones from list one
 	//Result: list three's nodes are replaced with the nodes
 	//from list one, and the original list three is deleted.
 	three = one;
+	//Expected: the nodes in the list should print out to the console
+	//Result: the console prints out the nodes in the list
+	std::cout << "This is list three's nodes after copy: " << std::endl;
+	three.print();
+	system("pause");
 }

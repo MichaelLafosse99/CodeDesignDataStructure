@@ -176,5 +176,5 @@ void linkedListType<T>::copyList(const linkedListType<T>& list)
 		this->insertLast(listOne->info);
 		listOne = listOne->next;
 	}
-
+	mCount++;
 }
