@@ -146,6 +146,7 @@ linkedListType<T>::linkedListType(const linkedListType<T>& list)
 	}
 	Last = listTwo;
 	listTwo->next = nullptr;
+	mCount++;
 }
 
 template<typename T>

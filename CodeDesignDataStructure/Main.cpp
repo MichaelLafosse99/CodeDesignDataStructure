@@ -6,61 +6,75 @@
 
 int main()
 {
+
+	//The test cases below show proof that the following work:
+
+	//Creating new nodes and giving them info
+	//Having those nodes point to another and then finally nullptr
+	//Iterating through the nodes
+	//initializeList()
+	//insertFirst() and insertLast()
+	//deleteNode()
+	//search()
+	//Using a constructor with an argument list to assign a
+	//new list nodes of a previous list
+	//begin() and end()
+	//print() and length()
+	//front() and back()
+	//Using the = operator to access copylist() and have a list
+	//copy the same nodes as another list
+
 	//Test Cases:
 
 	//Iterating Nodes:
+	
+	//Expected: A new node type is made
+	//Result: node1 is created
+	nodeType<int> node1;
+	//Expected: A new node type is made
+	//Result: node2 is created
+	nodeType<int> node2;
+	//Expected: A new node type is made
+	//Result: node3 is created
+	nodeType<int> node3;
+	//Expected: A new node type is made
+	//Result: node4 is created
+	nodeType<int> node4;
+	//Expected: node1's info is assigned 2
+	//Result: node1's info is assigned 2
+	node1.info = 2;
+	//Expected: node2's info is assigned 5
+	//Result: node2's info is assigned 5
+	node2.info = 5;
+	//Expected: node3's info is assigned 9
+	//Result: node3's info is assigned 9
+	node3.info = 9;
+	//Expected: node4's info is assigned 1
+	//Result: node4's info is assigned 1
+	node4.info = 1;
+	//Expected: node1's next should be node2
+	//Result: node1's next is node2
+	node1.next = &node2;
+	//Expected: node2's next should be node3
+	//Result: node2's next is node3
+	node2.next = &node3;
+	//Expected: node3's next should be node4
+	//Result: node3's next is node4
+	node3.next = &node4;
+	//Expected: node4's next should be nullptr
+	//Result: node4's next is nullptr
+	node4.next = nullptr;
+
+
+	//Expected:
+	//The iter should iterate through the node,
+	//assigning their values to the iter.
+	//Result:
+	//iter = 2, iter++, iter = 5...
+	linkedListIterator<int> iter(&node1);
+	for (int i = 0; i < 4; i++)
 	{
-		//Expected: A new node type is made
-		//Result: node1 is created
-		nodeType<int> node1;
-		//Expected: A new node type is made
-		//Result: node2 is created
-		nodeType<int> node2;
-		//Expected: A new node type is made
-		//Result: node3 is created
-		nodeType<int> node3;
-		//Expected: A new node type is made
-		//Result: node4 is created
-		nodeType<int> node4;
-
-		//Expected: node1's info is assigned 2
-		//Result: node1's info is assigned 2
-		node1.info = 2;
-		//Expected: node2's info is assigned 5
-		//Result: node2's info is assigned 5
-		node2.info = 5;
-		//Expected: node3's info is assigned 9
-		//Result: node3's info is assigned 9
-		node3.info = 9;
-		//Expected: node4's info is assigned 1
-		//Result: node4's info is assigned 1
-		node4.info = 1;
-
-		//Expected: node1's next should be node2
-		//Result: node1's next is node2
-		node1.next = &node2;
-		//Expected: node2's next should be node3
-		//Result: node2's next is node3
-		node2.next = &node3;
-		//Expected: node3's next should be node4
-		//Result: node3's next is node4
-		node3.next = &node4;
-		//Expected: node4's next should be nullptr
-		//Result: node4's next is nullptr
-		node4.next = nullptr;
-
-
-		//Expected:
-		//The iter should iterate through the node,
-		//assigning their values to the iter.
-		//Result:
-		//iter = 2, iter++, iter = 5...
-
-		linkedListIterator<int> iter(&node1);
-		for (int i = 0; i < 4; i++)
-		{
-			++iter;
-		}
+		++iter;
 	}
 
 	//List One:
@@ -108,6 +122,11 @@ int main()
 	//Expected: the nodes in the list should print out to the console
 	//Result: the console prints out the nodes in the list
 	two.print();
+	//Expected: length should return the number of nodes that are
+	//in the list
+	//Result: length returns mCount with the value of 3,
+	//which is the correct number of nodes there are in the list
+	two.length();
 
 	//List Three:
 
@@ -123,12 +142,16 @@ int main()
 	//Expected: First should point to a new node with the info of 1
 	//Result: The new node with the info of 1 is now the First node
 	three.insertFirst(1);
+	//Expected: The first node's info should be returned
+	//Result: 1, which is the info of the first node, is returned
+	three.front();
+	//Expected: The last node's info should be returned
+	//Result: 9, which is the info of the last node, is returned
+	three.back();
 	//Expected: This should delete list three,
 	//copy list one and replace the nodes in
 	//list three, with the ones from list one
 	//Result: list three's nodes are replaced with the nodes
 	//from list one, and the original list three is deleted.
 	three = one;
-	return 0;
-	
 }
