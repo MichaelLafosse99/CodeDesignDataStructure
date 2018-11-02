@@ -7,6 +7,7 @@ unsigned int HashFunction::badHash(const char * data, unsigned int length)
 	{
 		hash += data[i];
 	}
+
 	return hash;
 }
 
@@ -19,4 +20,11 @@ unsigned int HashFunction::myHash(const char * data, unsigned int size)
 		hash = (hash % size) + data[i];
 	}
 	return hash;
+}
+
+int main()
+{
+	const char* arr[3] = { "ho", "jo", "to" };
+
+	HashFunction::myHash(arr[2], 3);
 }
