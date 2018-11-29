@@ -9,7 +9,7 @@ public:
 	void insertLast(const T&) override;
 	void deleteNode(const T&) override;
 };
-
+//"This->" is needed because unorderedLinkedList is inherenting from linkedListType<T>
 template<typename T>
 bool unorderedLinkedList<T>::search(const T & object) const
 {
