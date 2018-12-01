@@ -123,18 +123,21 @@ T linkedListType<T>::back() const
 	return Last->info;
 }
 
+//Returns the first pointer
 template<typename T>
 linkedListIterator<T> linkedListType<T>::begin()
 {
 	return linkedListIterator<T>(First);
 }
 
+//Returns the iterator that points to nullptr
 template<typename T>
 linkedListIterator<T> linkedListType<T>::end()
 {
 	return linkedListIterator<T>(nullptr);
 }
 
+//A constructor that initializes a list.
 template<typename T>
 linkedListType<T>::linkedListType()
 {

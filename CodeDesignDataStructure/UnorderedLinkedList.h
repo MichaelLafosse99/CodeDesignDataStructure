@@ -104,6 +104,7 @@ void unorderedLinkedList<T>::deleteNode(const T & object)
 
 	nodeType<T> *dptr;
 	nodeType<T> *trailptr;
+	//First if only one node in list
 	if (this->mCount == 1)
 	{
 		delete this->First;
@@ -114,6 +115,7 @@ void unorderedLinkedList<T>::deleteNode(const T & object)
 	trailptr = this->First;
 	for (int i = 0; i < this->mCount; i++)
 	{
+		//If the deleting node is the first one
 		if (dptr->info == object)
 		{
 			this->First = this->First->next;
@@ -124,6 +126,7 @@ void unorderedLinkedList<T>::deleteNode(const T & object)
 		if (dptr->info != object)
 		{
 			dptr = dptr->next;
+			//if it's the last one
 			if (dptr == this->Last)
 			{
 				this->Last = trailptr;
@@ -132,6 +135,7 @@ void unorderedLinkedList<T>::deleteNode(const T & object)
 				this->mCount--;
 				return;
 			}
+			//inbetween first and last
 			if (dptr->info == object)
 			{
 				trailptr->next = dptr->next;

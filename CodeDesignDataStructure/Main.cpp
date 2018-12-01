@@ -122,7 +122,7 @@ int main()
 	//when created
 	//Result: List two has the same nodes as list one
 	unorderedLinkedList<int> two(one);
-	//Expected: Should returns the iterator that points to
+	//Expected: Should return the iterator that points to
 	//the first node
 	//Result: begin returns the interator that points to
 	//the first node
