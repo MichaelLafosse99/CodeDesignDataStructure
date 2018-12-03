@@ -5,39 +5,66 @@ class MyDArray
 {
 public:
 	MyDArray();
-	void Insert(Tem&);
-	void Delete(Tem&);
+	void CreateArray(int initialSize);
+	void Insert(Tem);
+	void Delete(Tem);
 
 private:
-
-	Tem* Value;
-	int storedValues;
+	Tem * Data;
 	int fullArray;
+	int usedArray;
 };
 
 template<class Tem>
 MyDArray<Tem>::MyDArray()
 {
-	storedValues = 0;
-	fullArray = 2;
-	Value = new Tem[fullArray];
+
 }
 
 template<class Tem>
-inline void MyDArray<Tem>::Insert(Tem & values)
+ void MyDArray<Tem>::CreateArray(int initialSize)
 {
-	if (storedValues == fullArray)
+	MyDArray dynamic;
+	Data = new Tem[initialSize];
+	fullArray = initialSize;
+	usedArray = 0;
+}
+
+template<class Tem>
+void MyDArray<Tem>::Insert(Tem newValue)
+{
+	if (fullArray == usedArray)
 	{
 		fullArray *= 2;
+		MyDArray<int> *newArray = new MyDArray<int>;
+		newArray->CreateArray(fullArray);
+		
+		for (int i = 0; i <= usedArray; i++)
+		{
+			newArray->Insert(Data[i]);
+		}
+		delete Data;
+
+		Data = new Tem[fullArray];
+
+		for (int i = 0; i <= usedArray; i++)
+		{
+			Data[i] = newArray->Data[i];
+		}
+		delete newArray;
+
+		Data[usedArray] = newValue;
+		usedArray++;
 	}
 	else
 	{
-		Value[storedValues++] = values;
+		Data[usedArray] = newValue;
+		usedArray++;
 	}
 }
 
 template<class Tem>
-inline void MyDArray<Tem>::Delete(Tem &)
+void MyDArray<Tem>::Delete(Tem)
 {
 
 }
