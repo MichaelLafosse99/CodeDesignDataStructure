@@ -69,7 +69,7 @@ void MyDArray<Tem>::Insert(Tem newValue)
 		//new temperary array
 		MyDArray<Tem> *newArray = new MyDArray<Tem>;
 		newArray->CreateArray(fullArray);
-		//the newArray calls on insert
+		//copies the data
 		for (int i = 0; i <= usedArray; i++)
 		{
 			newArray->Insert(Data[i]);
@@ -98,8 +98,7 @@ void MyDArray<Tem>::Insert(Tem newValue)
 //The way this delete works is, you put in the number you want to
 //delete, a new array is made, inside the for loop, while the data,
 //with the index of i, is not equal to the number you are trying to
-//delete, the new data's index increments and copies the data from
-//one
+//delete, the new data's index increments and 
 template<class Tem>
 void MyDArray<Tem>::Delete(Tem deletingValue)
 {
