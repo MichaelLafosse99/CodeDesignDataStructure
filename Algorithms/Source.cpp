@@ -1,36 +1,15 @@
 #include "Hero.h"
 
-Hero lowestHealth(Hero hero[], int size)
-{
-	Hero temp;
-
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = i+1; j < size; j++)
-		{
-			if (hero[i] < hero[j])
-			{
-				continue;
-			}
-			else
-			{
-				temp = hero[i];
-				hero[i] = hero[j];
-				hero[j] = temp;
-				
-			}
-		}
-	}
-	return hero[0];
-}
-
 int main()
 {
 	srand(time(0));
 
-	Hero hero[3];
-
-	lowestHealth(hero, 3);
-
+	Hero hero[5];
+	//Expected: five hero's should be set in order
+	//from least to greatest, in terms of health, and
+	// the lowest hero should be returned.
+	hero->lowestHealth(hero, 5);
+	//Result: The heros are put in the correct order,
+	//and the hero with the lowest health is returned.
 	return 0;
 }

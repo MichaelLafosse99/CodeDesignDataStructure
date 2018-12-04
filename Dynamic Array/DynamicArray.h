@@ -8,8 +8,9 @@ public:
 	MyDArray();
 	void CreateArray(int initialSize);
 	void displayValue();
-	void Insert(Tem);
 	void Delete(Tem);
+	void Insert(Tem);
+	
 
 
 private:
@@ -34,7 +35,6 @@ MyDArray<Tem>::MyDArray()
 template<class Tem>
  void MyDArray<Tem>::CreateArray(int initialSize)
 {
-	MyDArray dynamic;
 	Data = new Tem[initialSize];
 	fullArray = initialSize;
 	usedArray = 0;
@@ -52,8 +52,30 @@ void MyDArray<Tem>::displayValue()
 	}
  }
 
-//This is to insert the values into the array and their, indexes.
+//The way this delete works is, you put in the number you want to
+//delete, a new array is made, inside the for loop, while the data,
+//with the index of i, is not equal to the number you are trying to
+//delete, the new data's index increments and copies the data from
+//the first array, then the usedArray number decrements, the first
+//array is deleted and gets the values from the deleteArray.
+template<class Tem>
+void MyDArray<Tem>::Delete(Tem deletingValue)
+{
+	Tem *deleteArray = new Tem[fullArray];
+	int current = 0;
+	for (int i = 0; i < fullArray; i++)
+	{
+		if (Data[i] != deletingValue)
+		{
+			deleteArray[current++] = Data[i];
+		}
+	}
+	usedArray--;
+	delete Data;
+	Data = deleteArray;
+}
 
+//This is to insert the values into the array and their, indexes.
 //The way the following code works is that, if the array meets it's
 //capacity, it doubles in size, then creates a new array of the doubled size,
 //it then copies the data from the origninal arry, deletes the original,
@@ -69,7 +91,8 @@ void MyDArray<Tem>::Insert(Tem newValue)
 		//new temperary array
 		MyDArray<Tem> *newArray = new MyDArray<Tem>;
 		newArray->CreateArray(fullArray);
-		//the newArray calls on insert
+		//the newArray calls on insert to insert
+		//the data from the first array.
 		for (int i = 0; i <= usedArray; i++)
 		{
 			newArray->Insert(Data[i]);
@@ -93,27 +116,4 @@ void MyDArray<Tem>::Insert(Tem newValue)
 		Data[usedArray] = newValue;
 		usedArray++;
 	}
-}
-
-//The way this delete works is, you put in the number you want to
-//delete, a new array is made, inside the for loop, while the data,
-//with the index of i, is not equal to the number you are trying to
-//delete, the new data's index increments and copies the data from
-//one
-template<class Tem>
-void MyDArray<Tem>::Delete(Tem deletingValue)
-{
-	Tem *deleteArray = new Tem[fullArray];
-	int current = 0;
-	for (int i = 0; i < fullArray; i++)
-	{
-		if (Data[i] != deletingValue)
-		{
-			deleteArray[current++] = Data[i];
-		}
-	}
-	usedArray--;
-	delete Data;
-	Data = deleteArray;
-
 }
