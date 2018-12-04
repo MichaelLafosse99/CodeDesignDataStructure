@@ -11,8 +11,6 @@ public:
 	void Delete(Tem);
 	void Insert(Tem);
 	
-
-
 private:
 	//This is what makes up the dynamic array, Data is the pointer
 	//that points to the first index's address, fullArray is the
